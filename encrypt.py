@@ -80,7 +80,7 @@ def encr_pm():
         x=ord(i)
     #     print(format(x, '#010b'))
         in_bin+=str(format(x, '#010b')[2:])
-    print(len(in_bin))
+    # print(len(in_bin))
     if len(in_bin)<128:
         in_bin="1"+in_bin.zfill(127)
     

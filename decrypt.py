@@ -1,9 +1,8 @@
 import copy
 import keysched as ks
-import encrypt as enc
 
 key_sched=ks.keyscheduling()
-cipher_text=enc.encr_pm()
+
 
 def circulant( arr,  n):
    
@@ -72,7 +71,13 @@ def invsbox(sbox,state):
             state[k][i]=int(y[k])
     return state
     
-
+inp = input("Enter the cipher text: ")
+cipher_text=[[0 for i in range(32)]for j in range(4)]
+ind=0
+for i in range(4):
+    for j in range(32):
+        cipher_text[i][j]=int(inp[ind])
+        ind+=1
 Sbox = ['0010', '1101', '0011', '1001', '0111', '1011', '1010', '0110', '1110', '0000', '1111', '0100', '1000', '0101', '0001',
 '1100']
 cipher_text=addrndkey(key_sched[14],cipher_text)
@@ -95,7 +100,7 @@ for i in range(4):
         bin_str+=str(cipher_text[i][j])
         x+=1
         if x==8:
-            print(int(bin_str,2))
+            # print(int(bin_str,2))
             text+=chr(int(bin_str,2))
             bin_str=""
             x=0
